@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing — Udit Gupta</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-header { padding: 64px 0 48px; }
+    .page-header h2 { font-size: 32px; font-weight: 600; letter-spacing: -0.8px; margin-bottom: 12px; }
+    .page-header p { font-size: 16px; color: #6B7280; max-width: 480px; }
+
+    .post-list { display: flex; flex-direction: column; }
+
+    .post-item {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 24px; align-items: start;
+      padding: 28px 0; border-top: 0.5px solid #E5E7EB;
+    }
+    .post-item:last-child { border-bottom: 0.5px solid #E5E7EB; }
+
+    .post-tag-badge {
+      display: inline-block; font-size: 11px; font-weight: 500;
+      padding: 2px 8px; border-radius: 99px;
+      background: #F3F4F6; color: #6B7280; margin-bottom: 10px;
+    }
+    .post-title {
+      font-size: 17px; font-weight: 500; line-height: 1.4;
+      margin-bottom: 8px; letter-spacing: -0.2px;
+    }
+    .post-title a { transition: color 0.15s; }
+    .post-title a:hover { color: #6B7280; }
+    .post-excerpt { font-size: 14px; color: #6B7280; line-height: 1.7; margin-bottom: 10px; }
+    .post-meta { font-size: 13px; color: #9CA3AF; }
+    .post-arrow { font-size: 18px; color: #D1D5DB; margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Udit Gupta</a>
+    <div class="nav-links">
+      <a href="blog.html" class="active">Writing</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h2>Writing</h2>
+      <p>Thoughts on engineering, architecture, team dynamics, and the craft of building software.</p>
+    </div>
+
+    <div class="post-list">
+
+      <div class="post-item">
+        <div>
+          <span class="post-tag-badge">Engineering</span>
+          <p class="post-title">
+            <a href="https://medium.com/the-sixt-india-blog/a-note-for-software-engineering-interviewers-f95a4c5a83f" target="_blank">
+              A note for software engineering interviewers
+            </a>
+          </p>
+          <p class="post-excerpt">After interviewing more than 200 candidates, a set of practical principles for the person on the other side of the table — on preparation, bias, feedback, and what it means to interview with an acceptance mindset.</p>
+          <span class="post-meta">May 2022 · 3 min read · Medium</span>
+        </div>
+        <span class="post-arrow">→</span>
+      </div>
+
+      <div class="post-item">
+        <div>
+          <span class="post-tag-badge">Git</span>
+          <p class="post-title">
+            <a href="https://medium.com/@udit.10/have-you-git-it-part-ii-4502a4cdcc9b" target="_blank">
+              Have you GiT it? Part II
+            </a>
+          </p>
+          <p class="post-excerpt">A practical reference for everyday Git scenarios on shared repositories — bisect for hunting bad commits, interactive rebase, cherry-pick, reset modes, tagging, and diffstat variants.</p>
+          <span class="post-meta">Sep 2019 · 2 min read · Medium</span>
+        </div>
+        <span class="post-arrow">→</span>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Udit Gupta</p>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/udit-gupta-908b051a" target="_blank">LinkedIn</a>
+        <a href="https://github.com/ud10" target="_blank">GitHub</a>
+        <a href="https://medium.com/@udit.10" target="_blank">Medium</a>
+        <a href="mailto:uditgupta216@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
