@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Udit Gupta</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-wrap { padding: 64px 0 80px; max-width: 520px; }
+    .contact-wrap h2 { font-size: 32px; font-weight: 600; letter-spacing: -0.8px; margin-bottom: 16px; }
+    .contact-intro { font-size: 16px; color: #6B7280; line-height: 1.75; margin-bottom: 40px; }
+
+    .form-group { margin-bottom: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    label { display: block; font-size: 13px; color: #6B7280; margin-bottom: 6px; }
+    textarea { margin-bottom: 0; }
+
+    .submit-row { margin-top: 20px; display: flex; align-items: center; gap: 16px; }
+    .success-msg {
+      display: none; font-size: 14px; color: #166534;
+      background: #F0FDF4; padding: 14px 18px; border-radius: 8px; margin-top: 16px;
+    }
+
+    .or-divider {
+      display: flex; align-items: center; gap: 16px;
+      margin: 40px 0; color: #9CA3AF; font-size: 13px;
+    }
+    .or-divider::before, .or-divider::after {
+      content: ''; flex: 1; height: 0.5px; background: #E5E7EB;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 12px; }
+    .contact-link-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 18px; border: 0.5px solid #E5E7EB; border-radius: 10px;
+      font-size: 14px; color: #374151; transition: border-color 0.15s;
+    }
+    .contact-link-item:hover { border-color: #9CA3AF; }
+    .contact-link-label { font-weight: 500; }
+    .contact-link-value { font-size: 13px; color: #9CA3AF; }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Udit Gupta</a>
+    <div class="nav-links">
+      <a href="blog.html">Writing</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="contact-wrap">
+      <h2>Get in touch</h2>
+      <p class="contact-intro">
+        Open to conversations about architecture, distributed systems, AI-assisted engineering, or just an interesting technical discussion.
+      </p>
+
+      <div id="contact-form">
+        <div class="form-row">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="6" placeholder="What's on your mind?"></textarea>
+        </div>
+        <div class="submit-row">
+          <button class="btn btn-dark" onclick="handleSend()">Send message</button>
+        </div>
+      </div>
+
+      <div class="success-msg" id="success-msg">
+        Thanks — I'll get back to you soon.
+      </div>
+
+      <div class="or-divider">or reach out directly</div>
+
+      <div class="contact-links">
+        <a href="https://linkedin.com/in/udit-gupta-908b051a" target="_blank" class="contact-link-item">
+          <span class="contact-link-label">LinkedIn</span>
+          <span class="contact-link-value">linkedin.com/in/udit-gupta-908b051a →</span>
+        </a>
+        <a href="mailto:uditgupta216@gmail.com" class="contact-link-item">
+          <span class="contact-link-label">Email</span>
+          <span class="contact-link-value">uditgupta216@gmail.com →</span>
+        </a>
+        <a href="https://medium.com/@udit.10" target="_blank" class="contact-link-item">
+          <span class="contact-link-label">Medium</span>
+          <span class="contact-link-value">@udit.10 →</span>
+        </a>
+        <a href="https://github.com/ud10" target="_blank" class="contact-link-item">
+          <span class="contact-link-label">GitHub</span>
+          <span class="contact-link-value">github.com/ud10 →</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Udit Gupta</p>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/udit-gupta-908b051a" target="_blank">LinkedIn</a>
+        <a href="https://github.com/ud10" target="_blank">GitHub</a>
+        <a href="https://medium.com/@udit.10" target="_blank">Medium</a>
+        <a href="mailto:uditgupta216@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleSend() {
+      document.getElementById('contact-form').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
