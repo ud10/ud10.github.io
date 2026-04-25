@@ -1,4 +1,439 @@
----
-layout: default
-author_profile: true
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Udit Gupta — Software Architect</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #111; background: #fff; font-size: 16px; line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
+      border-bottom: 0.5px solid #E5E7EB;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 56px;
+    }
+    .nav-logo { font-weight: 500; font-size: 15px; letter-spacing: -0.3px; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { padding: 6px 12px; font-size: 14px; color: #6B7280; border-radius: 6px; transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: #111; font-weight: 500; }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; border-bottom: 0.5px solid #E5E7EB; }
+    section:last-of-type { border-bottom: none; }
+    .section-label { font-size: 13px; color: #9CA3AF; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 40px; }
+
+    #about { padding-top: 100px; }
+    .hero-meta { font-size: 13px; color: #9CA3AF; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; }
+    h1 { font-size: 42px; font-weight: 600; letter-spacing: -1px; line-height: 1.15; margin-bottom: 20px; }
+    .hero-tagline { font-size: 18px; color: #374151; max-width: 560px; margin-bottom: 12px; }
+    .hero-bio { font-size: 16px; color: #6B7280; max-width: 560px; margin-bottom: 32px; }
+    .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: #111; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; cursor: pointer; font-weight: 500; display: inline-block; }
+    .btn-secondary { background: none; border: 0.5px solid #D1D5DB; padding: 10px 20px; border-radius: 8px; font-size: 14px; cursor: pointer; color: #374151; display: inline-block; }
+
+    .exp-list { display: flex; flex-direction: column; gap: 40px; }
+    .exp-item { display: grid; grid-template-columns: 160px 1fr; gap: 24px; }
+    .exp-period { font-size: 13px; color: #6B7280; margin-bottom: 4px; }
+    .exp-location { font-size: 12px; color: #9CA3AF; }
+    .exp-role { font-weight: 500; font-size: 16px; margin-bottom: 2px; }
+    .exp-company { font-size: 14px; color: #6B7280; margin-bottom: 12px; }
+    .exp-bullets { padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+    .exp-bullets li { font-size: 14px; color: #374151; line-height: 1.6; }
+
+    .skills-wrap { margin-top: 48px; padding-top: 32px; border-top: 0.5px solid #E5E7EB; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tag { font-size: 12px; padding: 3px 10px; border-radius: 99px; background: #F3F4F6; color: #374151; font-family: monospace; }
+    .tag-group-label { font-size: 11px; color: #9CA3AF; letter-spacing: 0.06em; text-transform: uppercase; width: 100%; margin-top: 12px; margin-bottom: 2px; }
+
+    .project-item { padding: 28px 0; border-bottom: 0.5px solid #E5E7EB; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; }
+    .project-item:last-child { border-bottom: none; }
+    .project-name { font-weight: 500; font-size: 16px; margin-bottom: 8px; }
+    .project-desc { font-size: 14px; color: #4B5563; margin-bottom: 14px; line-height: 1.7; }
+    .project-arrow { color: #9CA3AF; font-size: 18px; margin-top: 2px; }
+
+    .post-item { padding: 28px 0; border-bottom: 0.5px solid #E5E7EB; }
+    .post-item:last-child { border-bottom: none; }
+    .post-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .post-tag { font-size: 11px; padding: 2px 8px; border-radius: 99px; font-weight: 500; background: #F3F4F6; color: #6B7280; }
+    .post-date { font-size: 13px; color: #9CA3AF; }
+    .post-title { font-weight: 500; font-size: 16px; margin-bottom: 8px; line-height: 1.4; }
+    .post-title a { color: #111; border-bottom: 0.5px solid #E5E7EB; transition: border-color 0.15s; }
+    .post-title a:hover { border-color: #9CA3AF; }
+    .post-excerpt { font-size: 14px; color: #4B5563; line-height: 1.7; }
+
+    .contact-intro { font-size: 16px; color: #4B5563; margin-bottom: 32px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    input, textarea { width: 100%; padding: 10px 14px; border: 0.5px solid #D1D5DB; border-radius: 8px; font-size: 14px; font-family: inherit; background: #fff; outline: none; color: #111; }
+    input:focus, textarea:focus { border-color: #9CA3AF; }
+    textarea { resize: vertical; margin-bottom: 14px; }
+    .btn-send { background: #111; color: #fff; border: none; padding: 10px 24px; border-radius: 8px; font-size: 14px; cursor: pointer; font-weight: 500; }
+    .success-msg { display: none; padding: 20px 24px; background: #F0FDF4; border-radius: 10px; color: #166534; font-size: 15px; }
+    .social-links { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; }
+    .social-links a { font-size: 14px; color: #6B7280; border-bottom: 0.5px solid #D1D5DB; padding-bottom: 2px; }
+
+    footer { padding: 32px 0; text-align: center; }
+    footer p { font-size: 13px; color: #9CA3AF; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 16px; }
+      .nav-links a { padding: 6px 8px; font-size: 13px; }
+      h1 { font-size: 30px; }
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">Udit Gupta</span>
+    <div class="nav-links">
+      <a href="#about" class="active">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- About -->
+    <section id="about">
+      <p class="hero-meta">Bengaluru · Software Architect</p>
+      <h1>Udit Gupta</h1>
+      <p class="hero-tagline">Software Architect specialising in distributed systems, platform engineering, and AI-assisted software development.</p>
+      <p class="hero-bio">I design and scale backend systems, define technical strategy, and lead cross-functional engineering initiatives. Currently leading the technical charter and roadmap for SIXT Ride — covering dispatching, supply, pricing, and observability. I equally care about technology and product, and believe great engineering multiplies team output, not just system performance.</p>
+      <div class="btn-group">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#blog" class="btn-secondary">Read Blog</a>
+        <a href="https://linkedin.com/in/udit-gupta-908b051a" target="_blank" class="btn-secondary">LinkedIn →</a>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <p class="section-label">Experience & Skills</p>
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div>
+            <p class="exp-period">Oct 2022 – Present</p>
+            <p class="exp-location">Bengaluru, India</p>
+          </div>
+          <div>
+            <p class="exp-role">Staff Software Engineer</p>
+            <p class="exp-company">SIXT Research & Development India</p>
+            <ul class="exp-bullets">
+              <li>Leading the technical charter and roadmap for SIXT Ride — dispatching, supply, pricing, monitoring, and infrastructure</li>
+              <li>Authored the System Design & Architecture Guidelines adopted as the canonical ARB template across all Ride teams</li>
+              <li>Drove hexagonal architecture adoption across the division — defined pragmatic migration strategy and served as architecture guardian for RDRI and RTRA</li>
+              <li>Introduced ADRs as standard practice; co-designed the C4 documentation standards with cross-functional leads</li>
+              <li>Championed AI-assisted development — built agentic workflows for spec-driven development, incident triaging, and proactive monitoring</li>
+              <li>Operating as the technical bridge between RDRI and RTRA, coordinating cross-team dependencies and unblocking delivery</li>
+              <li>Achieved "Satisfactory" NFR compliance ratings every quarter from Q2 2025 through Q1 2026</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div>
+            <p class="exp-period">Apr 2020 – Sep 2022</p>
+            <p class="exp-location">Bengaluru, India</p>
+          </div>
+          <div>
+            <p class="exp-role">Software Development Engineer III</p>
+            <p class="exp-company">SIXT Research & Development India</p>
+            <ul class="exp-bullets">
+              <li>Owned end-to-end design and delivery of critical backend platform features across the full SDLC</li>
+              <li>Worked across requirements, architecture, development, deployment, monitoring, and documentation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div>
+            <p class="exp-period">Sep 2018 – Mar 2020</p>
+            <p class="exp-location">Bengaluru, India</p>
+          </div>
+          <div>
+            <p class="exp-role">Software Development Engineer II</p>
+            <p class="exp-company">SIXT Research & Development India</p>
+            <ul class="exp-bullets">
+              <li>Built and shipped backend features with a focus on scalability, reliability, and observability</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div>
+            <p class="exp-period">Nov 2016 – Aug 2018</p>
+            <p class="exp-location">Bengaluru, India</p>
+          </div>
+          <div>
+            <p class="exp-role">Senior Software Engineer</p>
+            <p class="exp-company">Myntra</p>
+            <ul class="exp-bullets">
+              <li>Designed and built a multi-tenant Partner & Contract Lifecycle Management system with strict maker-checker enforcement — extensible to any future entity</li>
+              <li>Re-architected the Discount Management System from monolith to microservice — 95%+ improvement in page load performance, near-zero on-call incidents</li>
+              <li>Led GST compliance upgrades and designed a Stock Movement tracking system at individual item granularity</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div>
+            <p class="exp-period">Apr 2015 – Oct 2016</p>
+            <p class="exp-location">Bengaluru, India</p>
+          </div>
+          <div>
+            <p class="exp-role">Senior Software Development Engineer</p>
+            <p class="exp-company">CommonFloor.com</p>
+            <ul class="exp-bullets">
+              <li>Led a 4-member team to design and build a lead recommendation engine — identifying potential leads for clients based on inventory signals</li>
+              <li>Designed and developed a refund product to address client grievances end-to-end</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div>
+            <p class="exp-period">Mar 2014 – Mar 2015</p>
+            <p class="exp-location">Bengaluru, India</p>
+          </div>
+          <div>
+            <p class="exp-role">Software Development Engineer</p>
+            <p class="exp-company">CommonFloor.com</p>
+            <ul class="exp-bullets">
+              <li>Designed and built the backend for the CommonFloor Agents mobile app</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div>
+            <p class="exp-period">Jul 2012 – Dec 2013</p>
+            <p class="exp-location">India</p>
+          </div>
+          <div>
+            <p class="exp-role">Member Technical Staff</p>
+            <p class="exp-company">Oracle Server Technologies</p>
+            <ul class="exp-bullets">
+              <li>Part of Oracle Enterprise Manager Virtualization & Private Cloud team — implemented Nimbula plugin features</li>
+              <li>Reduced DB QA test suite diff counts significantly within 3 months; automated Exadata prerequisite checks</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="skills-wrap">
+        <p class="section-label">Skills</p>
+        <div class="tag-list">
+          <span class="tag-group-label">Architecture & Systems</span>
+          <span class="tag">Distributed Systems</span>
+          <span class="tag">System Design</span>
+          <span class="tag">Software Architecture</span>
+          <span class="tag">Hexagonal Architecture</span>
+          <span class="tag">Microservices</span>
+          <span class="tag">Large-Scale Migrations</span>
+          <span class="tag">RESTful APIs</span>
+          <span class="tag">gRPC</span>
+
+          <span class="tag-group-label">Infrastructure & Data</span>
+          <span class="tag">Kafka</span>
+          <span class="tag">Redis</span>
+          <span class="tag">Database Design</span>
+          <span class="tag">Caching</span>
+          <span class="tag">Observability</span>
+          <span class="tag">Java</span>
+
+          <span class="tag-group-label">AI & Agentic Workflows</span>
+          <span class="tag">Claude Code</span>
+          <span class="tag">Cursor</span>
+          <span class="tag">Agentic Workflows for SDLC</span>
+          <span class="tag">LLM-assisted Development</span>
+
+          <span class="tag-group-label">Leadership</span>
+          <span class="tag">Technical Roadmap</span>
+          <span class="tag">Architecture Review</span>
+          <span class="tag">ADRs</span>
+          <span class="tag">Mentoring</span>
+          <span class="tag">SDLC</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <p class="section-label">Projects</p>
+
+      <div class="project-item">
+        <div>
+          <p class="project-name">Multi-tenant Rule Engine Framework — SIXT Ride</p>
+          <p class="project-desc">Designed a reusable rule engine framework to support condition-based dispatching with AND/OR logic, priority resolution, and conflict detection — as part of the "Set It Up" initiative. Supports multiple knowledge bases (immediate allocation, marketplace) with versioned rule evaluation and traceback. Architected for reuse across pricing, capacity distribution, and future rule-based domains.</p>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">Distributed Systems</span>
+            <span class="tag">Rule Engine</span>
+            <span class="tag">Multi-tenancy</span>
+          </div>
+        </div>
+        <span class="project-arrow">→</span>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <p class="project-name">Flight Tracking — Multi-tenant Extension for Rent</p>
+          <p class="project-desc">Designed the multi-tenant extension of SIXT's flight tracking system to support Rent reservations alongside Ride. Defined the integration contract — gRPC endpoints for flight subscription, Kafka events with tenant fields for delays/diversions/cancellations, and the concept for flight-connect cross-sell. Enables proactive ride upselling to rental customers arriving at airports (Ride-Fly-Rent, Must-Win-2026).</p>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">gRPC</span>
+            <span class="tag">Kafka</span>
+            <span class="tag">Multi-tenancy</span>
+            <span class="tag">System Design</span>
+          </div>
+        </div>
+        <span class="project-arrow">→</span>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <p class="project-name">Supply Sync — Standard Supply API Platform</p>
+          <p class="project-desc">Contributed to the architecture of SupplySync, a standardised API platform enabling third-party TSPs to integrate with SIXT Ride self-service. Covered reservation lifecycle (create, get, update, cancel), driver and vehicle assignment, webhook-based location updates, partner-level throttling, and OpenAPI documentation. Designed authentication using the client_credentials grant type.</p>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">API Design</span>
+            <span class="tag">OpenAPI</span>
+            <span class="tag">OAuth2</span>
+            <span class="tag">Webhooks</span>
+          </div>
+        </div>
+        <span class="project-arrow">→</span>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <p class="project-name">Discount Management System — Monolith to Microservice</p>
+          <p class="project-desc">Re-architected Myntra's Discount Management System from a monolith into a standalone microservice. Achieved over 95% improvement in page load performance and reduced on-call incidents from 3–4 per week to near zero.</p>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">Microservices</span>
+            <span class="tag">Performance Engineering</span>
+          </div>
+        </div>
+        <span class="project-arrow">→</span>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <p class="project-name">Agentic Workflows for Engineering Teams</p>
+          <p class="project-desc">Built multiple agentic workflows to improve team productivity — including spec-driven development (generating implementation specs from requirements), automated incident triaging and fix suggestions, and proactive monitoring workflows. Part of the broader SIXT initiative around AI-assisted development.</p>
+          <div class="tag-list">
+            <span class="tag">Claude Code</span>
+            <span class="tag">Cursor</span>
+            <span class="tag">Agentic AI</span>
+            <span class="tag">LLM Tooling</span>
+          </div>
+        </div>
+        <span class="project-arrow">→</span>
+      </div>
+
+    </section>
+
+    <!-- Blog -->
+    <section id="blog">
+      <p class="section-label">Writing</p>
+
+      <div class="post-item">
+        <div class="post-meta">
+          <span class="post-tag">Engineering</span>
+          <span class="post-date">May 2022 · 3 min read</span>
+        </div>
+        <p class="post-title">
+          <a href="https://medium.com/the-sixt-india-blog/a-note-for-software-engineering-interviewers-f95a4c5a83f" target="_blank">
+            A note for software engineering interviewers →
+          </a>
+        </p>
+        <p class="post-excerpt">After interviewing more than 200 candidates, a set of practical principles for the person on the other side of the table — on preparation, bias, feedback, and what it means to interview with an acceptance mindset.</p>
+      </div>
+
+      <div class="post-item">
+        <div class="post-meta">
+          <span class="post-tag">Git</span>
+          <span class="post-date">Sep 2019 · 2 min read</span>
+        </div>
+        <p class="post-title">
+          <a href="https://medium.com/@udit.10/have-you-git-it-part-ii-4502a4cdcc9b" target="_blank">
+            Have you GiT it? Part II →
+          </a>
+        </p>
+        <p class="post-excerpt">A practical reference for everyday Git scenarios on shared repositories — bisect for hunting bad commits, interactive rebase, cherry-pick, reset modes, tagging, and diffstat variants.</p>
+      </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <p class="section-label">Contact</p>
+      <p class="contact-intro">Open to conversations about Staff/Principal engineering roles, architecture challenges, and distributed systems. Also happy to connect on AI-assisted engineering, technical leadership, or anything in between.</p>
+
+      <div id="contact-form">
+        <div class="form-row">
+          <input type="text" id="name" placeholder="Name" />
+          <input type="email" id="email" placeholder="Email" />
+        </div>
+        <textarea id="message" rows="5" placeholder="Message"></textarea>
+        <button class="btn-send" onclick="handleSend()">Send message</button>
+      </div>
+      <div class="success-msg" id="success-msg">Message sent — I'll get back to you soon.</div>
+
+      <div class="social-links">
+        <a href="https://linkedin.com/in/udit-gupta-908b051a" target="_blank">LinkedIn →</a>
+        <a href="https://github.com/ud10" target="_blank">GitHub →</a>
+        <a href="https://medium.com/@udit.10" target="_blank">Medium →</a>
+        <a href="mailto:uditgupta216@gmail.com">Email →</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Udit Gupta</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => obs.observe(s));
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    function handleSend() {
+      document.getElementById('contact-form').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
