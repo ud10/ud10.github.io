@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Udit Gupta</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-header { padding: 64px 0 48px; }
+    .page-header h2 { font-size: 32px; font-weight: 600; letter-spacing: -0.8px; margin-bottom: 20px; }
+    .bio-block { font-size: 17px; color: #374151; line-height: 1.8; max-width: 600px; }
+    .bio-block p + p { margin-top: 16px; }
+
+    /* Currently */
+    .currently { margin: 48px 0; }
+    .currently-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px;
+    }
+    .currently-item {
+      padding: 18px 20px; border: 0.5px solid #E5E7EB; border-radius: 10px;
+    }
+    .currently-item-label { font-size: 11px; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .currently-item-value { font-size: 14px; color: #374151; font-weight: 500; }
+
+    /* Experience */
+    .exp-list { display: flex; flex-direction: column; gap: 36px; margin-top: 28px; }
+    .exp-item { display: grid; grid-template-columns: 148px 1fr; gap: 24px; }
+    .exp-meta { padding-top: 2px; }
+    .exp-period { font-size: 13px; color: #6B7280; margin-bottom: 3px; }
+    .exp-co { font-size: 12px; color: #9CA3AF; }
+    .exp-role { font-weight: 500; font-size: 15px; margin-bottom: 2px; }
+    .exp-company-name { font-size: 14px; color: #6B7280; }
+
+    /* Skills */
+    .skills-section { margin-top: 48px; }
+    .skill-group { margin-bottom: 20px; }
+    .skill-group-label {
+      font-size: 12px; color: #9CA3AF;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    /* Education */
+    .edu-item { padding: 20px 0; border-top: 0.5px solid #E5E7EB; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+    .edu-item:last-child { border-bottom: 0.5px solid #E5E7EB; }
+    .edu-name { font-weight: 500; font-size: 15px; }
+    .edu-degree { font-size: 14px; color: #6B7280; margin-top: 2px; }
+    .edu-year { font-size: 13px; color: #9CA3AF; white-space: nowrap; }
+
+    @media (max-width: 600px) {
+      .currently-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 6px; }
+      .edu-item { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Udit Gupta</a>
+    <div class="nav-links">
+      <a href="blog.html">Writing</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h2>About</h2>
+      <div class="bio-block">
+        <p>I'm a Software Architect based in Bengaluru with over 12 years of experience building distributed systems, scaling backend infrastructure, and leading engineering teams.</p>
+        <p>I care about both technology and product. The best systems I've built weren't just technically sound — they solved real problems, reduced toil for teams, and held up under pressure. I've worked across the full SDLC: from requirements and architecture through deployment, monitoring, and maintenance.</p>
+        <p>Outside of work I'm interested in financial markets — particularly Indian equities — and I'm currently exploring how agentic AI workflows can meaningfully change how engineering teams operate.</p>
+      </div>
+    </div>
+
+    <!-- Currently -->
+    <div class="currently">
+      <p class="label">Currently</p>
+      <div class="currently-grid">
+        <div class="currently-item">
+          <p class="currently-item-label">Role</p>
+          <p class="currently-item-value">Staff Software Engineer</p>
+        </div>
+        <div class="currently-item">
+          <p class="currently-item-label">Company</p>
+          <p class="currently-item-value">SIXT R&D India</p>
+        </div>
+        <div class="currently-item">
+          <p class="currently-item-label">Focus</p>
+          <p class="currently-item-value">Ride platform — dispatching, supply, pricing, observability</p>
+        </div>
+        <div class="currently-item">
+          <p class="currently-item-label">Location</p>
+          <p class="currently-item-value">Bengaluru, India</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Experience -->
+    <p class="label">Experience</p>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2022 – Present</p>
+          <p class="exp-co">SIXT R&D India</p>
+        </div>
+        <div>
+          <p class="exp-role">Staff Software Engineer</p>
+          <p class="exp-company-name">SIXT Research & Development India</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2020 – 2022</p>
+          <p class="exp-co">SIXT R&D India</p>
+        </div>
+        <div>
+          <p class="exp-role">Software Development Engineer III</p>
+          <p class="exp-company-name">SIXT Research & Development India</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2018 – 2020</p>
+          <p class="exp-co">SIXT R&D India</p>
+        </div>
+        <div>
+          <p class="exp-role">Software Development Engineer II</p>
+          <p class="exp-company-name">SIXT Research & Development India</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2016 – 2018</p>
+          <p class="exp-co">Myntra</p>
+        </div>
+        <div>
+          <p class="exp-role">Senior Software Engineer</p>
+          <p class="exp-company-name">Myntra</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2014 – 2016</p>
+          <p class="exp-co">CommonFloor</p>
+        </div>
+        <div>
+          <p class="exp-role">Senior Software Development Engineer</p>
+          <p class="exp-company-name">CommonFloor.com</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2014</p>
+          <p class="exp-co">CommonFloor</p>
+        </div>
+        <div>
+          <p class="exp-role">Software Development Engineer</p>
+          <p class="exp-company-name">CommonFloor.com</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">2012 – 2013</p>
+          <p class="exp-co">Oracle</p>
+        </div>
+        <div>
+          <p class="exp-role">Member Technical Staff</p>
+          <p class="exp-company-name">Oracle Server Technologies</p>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Skills -->
+    <p class="label">Skills</p>
+    <div class="skills-section">
+
+      <div class="skill-group">
+        <p class="skill-group-label">Architecture & Systems</p>
+        <div class="tag-list">
+          <span class="tag">Distributed Systems</span>
+          <span class="tag">System Design</span>
+          <span class="tag">Hexagonal Architecture</span>
+          <span class="tag">Microservices</span>
+          <span class="tag">Large-Scale Migrations</span>
+          <span class="tag">RESTful APIs</span>
+          <span class="tag">gRPC</span>
+        </div>
+      </div>
+
+      <div class="skill-group" style="margin-top: 20px;">
+        <p class="skill-group-label">Infrastructure & Data</p>
+        <div class="tag-list">
+          <span class="tag">Java</span>
+          <span class="tag">Kafka</span>
+          <span class="tag">Redis</span>
+          <span class="tag">Database Design</span>
+          <span class="tag">Observability</span>
+          <span class="tag">Caching</span>
+        </div>
+      </div>
+
+      <div class="skill-group" style="margin-top: 20px;">
+        <p class="skill-group-label">AI & Agentic Workflows</p>
+        <div class="tag-list">
+          <span class="tag">Claude Code</span>
+          <span class="tag">Cursor</span>
+          <span class="tag">Agentic Workflows for SDLC</span>
+          <span class="tag">LLM-assisted Development</span>
+        </div>
+      </div>
+
+      <div class="skill-group" style="margin-top: 20px;">
+        <p class="skill-group-label">Leadership</p>
+        <div class="tag-list">
+          <span class="tag">Technical Roadmap</span>
+          <span class="tag">Architecture Review</span>
+          <span class="tag">ADRs</span>
+          <span class="tag">Mentoring</span>
+          <span class="tag">NFR Compliance</span>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Education -->
+    <p class="label">Education</p>
+    <div style="margin-top: 8px;">
+      <div class="edu-item">
+        <div>
+          <p class="edu-name">Motilal Nehru National Institute of Technology</p>
+          <p class="edu-degree">B.Tech, Information Technology</p>
+        </div>
+        <span class="edu-year">2008 – 2012</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px;">
+      <a href="contact.html" class="btn btn-dark">Get in touch →</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Udit Gupta</p>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/udit-gupta-908b051a" target="_blank">LinkedIn</a>
+        <a href="https://github.com/ud10" target="_blank">GitHub</a>
+        <a href="https://medium.com/@udit.10" target="_blank">Medium</a>
+        <a href="mailto:uditgupta216@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
