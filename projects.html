@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Udit Gupta</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-header { padding: 64px 0 48px; }
+    .page-header h2 { font-size: 32px; font-weight: 600; letter-spacing: -0.8px; margin-bottom: 12px; }
+    .page-header p { font-size: 16px; color: #6B7280; max-width: 480px; }
+
+    .project-list { display: flex; flex-direction: column; }
+
+    .project-item {
+      padding: 32px 0; border-top: 0.5px solid #E5E7EB;
+      display: grid; grid-template-columns: 1fr 120px; gap: 32px; align-items: start;
+    }
+    .project-item:last-child { border-bottom: 0.5px solid #E5E7EB; }
+
+    .project-context {
+      font-size: 12px; color: #9CA3AF;
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .project-name { font-size: 18px; font-weight: 500; letter-spacing: -0.3px; margin-bottom: 10px; }
+    .project-desc { font-size: 14px; color: #4B5563; line-height: 1.75; margin-bottom: 16px; }
+
+    .project-side { text-align: right; padding-top: 4px; }
+    .project-year { font-size: 13px; color: #9CA3AF; display: block; margin-bottom: 6px; }
+
+    @media (max-width: 600px) {
+      .project-item { grid-template-columns: 1fr; gap: 12px; }
+      .project-side { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Udit Gupta</a>
+    <div class="nav-links">
+      <a href="blog.html">Writing</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h2>Projects</h2>
+      <p>Systems I've designed, led, or contributed to — across platform engineering, distributed infrastructure, and AI tooling.</p>
+    </div>
+
+    <div class="project-list">
+
+      <div class="project-item">
+        <div>
+          <p class="project-context">SIXT Ride · Platform</p>
+          <p class="project-name">Multi-tenant Rule Engine Framework</p>
+          <p class="project-desc">Designed a reusable rule engine to support condition-based dispatching with AND/OR logic, priority resolution, and conflict detection. Supports multiple knowledge bases with versioned rule evaluation and traceback. Built to be reusable across pricing, capacity distribution, and future rule-based domains — not just dispatching.</p>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">Distributed Systems</span>
+            <span class="tag">Rule Engine</span>
+            <span class="tag">Multi-tenancy</span>
+          </div>
+        </div>
+        <div class="project-side">
+          <span class="project-year">2025</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <p class="project-context">SIXT Ride · Cross-product</p>
+          <p class="project-name">Flight Tracking — Multi-tenant Extension</p>
+          <p class="project-desc">Extended SIXT's existing Ride flight tracking system to support Rent reservations. Designed the multi-tenant architecture with tenant-aware Kafka event publishing and gRPC subscription endpoints. Enables proactive ride upselling to rental customers arriving at airports — part of the Ride-Fly-Rent Must-Win-2026 initiative.</p>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">gRPC</span>
+            <span class="tag">Kafka</span>
+            <span class="tag">Multi-tenancy</span>
+          </div>
+        </div>
+        <div class="project-side">
+          <span class="project-year">2025</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <p class="project-context">SIXT Ride · Supply</p>
+          <p class="project-name">Supply Sync — Standard Supply API Platform</p>
+          <p class="project-desc">Contributed to the architecture of SupplySync — a standardised API enabling third-party transport service providers to integrate with SIXT Ride self-service. Covered the reservation lifecycle, driver and vehicle assignment, webhook-based location updates, partner throttling, OpenAPI documentation, and OAuth2 client_credentials authentication.</p>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">API Design</span>
+            <span class="tag">OpenAPI</span>
+            <span class="tag">OAuth2</span>
+            <span class="tag">Webhooks</span>
+          </div>
+        </div>
+        <div class="project-side">
+          <span class="project-year">2024</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <p class="project-context">SIXT Ride · AI Tooling</p>
+          <p class="project-name">Agentic Workflows for Engineering Teams</p>
+          <p class="project-desc">Built LLM-powered workflows to improve team productivity — spec-driven development (generating implementation specs from requirements), automated incident triaging and fix suggestions, and proactive monitoring. Championed AI-assisted development practices across the Ride engineering division.</p>
+          <div class="tag-list">
+            <span class="tag">Claude Code</span>
+            <span class="tag">Cursor</span>
+            <span class="tag">Agentic AI</span>
+            <span class="tag">LLM Tooling</span>
+          </div>
+        </div>
+        <div class="project-side">
+          <span class="project-year">2024–25</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <p class="project-context">Myntra · Commerce</p>
+          <p class="project-name">Discount Management System — Monolith to Microservice</p>
+          <p class="project-desc">Re-architected Myntra's Discount Management System from a monolith into a standalone microservice. Achieved over 95% improvement in page load performance and reduced on-call incidents from 3–4 per week to near zero.</p>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">Microservices</span>
+            <span class="tag">Performance Engineering</span>
+          </div>
+        </div>
+        <div class="project-side">
+          <span class="project-year">2017</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <p class="project-context">Myntra · Partner Platform</p>
+          <p class="project-name">Multi-tenant Partner & Contract Lifecycle System</p>
+          <p class="project-desc">Designed and built the core generic lifecycle components enabling a strict maker-checker process across Partner and Contract entities — without any business downtime. Architected for extensibility so any future entity can adopt the lifecycle with minimal changes.</p>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">Microservices</span>
+            <span class="tag">Multi-tenancy</span>
+          </div>
+        </div>
+        <div class="project-side">
+          <span class="project-year">2016–17</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Udit Gupta</p>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/udit-gupta-908b051a" target="_blank">LinkedIn</a>
+        <a href="https://github.com/ud10" target="_blank">GitHub</a>
+        <a href="https://medium.com/@udit.10" target="_blank">Medium</a>
+        <a href="mailto:uditgupta216@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
